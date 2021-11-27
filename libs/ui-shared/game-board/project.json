@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/ui-shared/game-board",
+  "sourceRoot": "libs/ui-shared/game-board/src",
+  "prefix": "nx-cross-platform-monorepo",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-shared/game-board"],
+      "options": {
+        "jestConfig": "libs/ui-shared/game-board/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-shared/game-board/src/**/*.ts",
+          "libs/ui-shared/game-board/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -17,6 +17,9 @@
     "paths": {
       "@nx-cross-platform-monorepo/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
+      ],
+      "@nx-cross-platform-monorepo/ui-shared/game-board": [
+        "libs/ui-shared/game-board/src/index.ts"
       ]
     }
   },

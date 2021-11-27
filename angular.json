@@ -1,13 +1,13 @@
 {
-  "version": 1,
+  "version": 2,
   "projects": {
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
       "projectType": "application",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/node:build",
+          "executor": "@nrwl/node:build",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
@@ -30,20 +30,20 @@
           }
         },
         "serve": {
-          "builder": "@nrwl/node:execute",
+          "executor": "@nrwl/node:execute",
           "options": {
             "buildTarget": "api:build"
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
@@ -57,9 +57,9 @@
       "root": "libs/api-interfaces",
       "sourceRoot": "libs/api-interfaces/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
@@ -68,14 +68,15 @@
       },
       "tags": []
     },
+    "ui-shared-game-board": "libs/ui-shared/game-board",
     "web-app-tetris": {
       "projectType": "application",
       "root": "apps/web-app-tetris",
       "sourceRoot": "apps/web-app-tetris/src",
       "prefix": "nx-cross-platform-monorepo",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "executor": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/web-app-tetris",
@@ -125,7 +126,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "executor": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "web-app-tetris:build:production"
@@ -140,13 +141,13 @@
           }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "executor": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "web-app-tetris:build"
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "apps/web-app-tetris/src/**/*.ts",
@@ -155,7 +156,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/web-app-tetris"],
           "options": {
             "jestConfig": "apps/web-app-tetris/jest.config.js",
@@ -169,9 +170,9 @@
       "root": "apps/web-app-tetris-e2e",
       "sourceRoot": "apps/web-app-tetris-e2e/src",
       "projectType": "application",
-      "architect": {
+      "targets": {
         "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+          "executor": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/web-app-tetris-e2e/cypress.json",
             "devServerTarget": "web-app-tetris:serve:development"
@@ -183,7 +184,7 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/web-app-tetris-e2e/**/*.{js,ts}"]
