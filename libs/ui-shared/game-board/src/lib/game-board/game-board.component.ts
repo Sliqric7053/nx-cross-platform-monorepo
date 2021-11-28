@@ -5,6 +5,7 @@ import {
   OnInit,
   HostListener,
 } from '@angular/core';
+import { Zoundfx } from 'ng-zzfx';
 import {
   COLS,
   BLOCK_SIZE,
@@ -16,10 +17,11 @@ import {
   POINTS,
   KEY,
   COLORSDARKER,
-} from '@nx-cross-platform-monorepo/web-app-tetris/util-constants';
-import { Zoundfx } from 'ng-zzfx';
-import { IPiece, Piece } from '../piece/piece.component';
-import { GameEngineLibService } from '../../services/game-engine-lib.service';
+  Piece,
+  GameEngineService,
+} from '@nx-cross-platform-monorepo/web-app-tetris/util-shared';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { IPiece } from '@nx-cross-platform-monorepo/web-app-tetris/util-interface';
 import { CapacitorStorageService } from '@shared-lib';
 
 @Component({
@@ -79,7 +81,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   constructor(
-    private service: GameEngineLibService,
+    private service: GameEngineService,
     private capStorageService: CapacitorStorageService
   ) {}
 
