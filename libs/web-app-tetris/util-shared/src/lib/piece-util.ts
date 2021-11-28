@@ -3,9 +3,9 @@ import {
   SHAPES,
   COLORSLIGHTER,
   COLORSDARKER,
-} from '../../../util-constants/src/index';
+} from './constants/web-app-tetris-util-constants';
 
-import { IPiece } from '../../../util-interface/src/index';
+import { IPiece } from '@nx-cross-platform-monorepo/web-app-tetris/util-interface';
 
 export class Piece implements IPiece {
   x: number;

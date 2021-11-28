@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable no-sparse-arrays */
 import {
   Component,
   ViewChild,
@@ -20,9 +22,8 @@ import {
   Piece,
   GameEngineService,
 } from '@nx-cross-platform-monorepo/web-app-tetris/util-shared';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { IPiece } from '@nx-cross-platform-monorepo/web-app-tetris/util-interface';
-import { CapacitorStorageService } from '@shared-lib';
+import { CapacitorStorageService } from '@nx-cross-platform-monorepo/util-shared';
 
 @Component({
   selector: 'nx-cross-platform-monorepo-game-board',
@@ -31,30 +32,30 @@ import { CapacitorStorageService } from '@shared-lib';
 })
 export class GameBoardComponent implements OnInit {
   @ViewChild('board', { static: true })
-  canvas: ElementRef<HTMLCanvasElement>;
+  canvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('next', { static: true })
-  canvasNext: ElementRef<HTMLCanvasElement>;
-  ctx: CanvasRenderingContext2D;
-  ctxNext: CanvasRenderingContext2D;
-  board: number[][];
-  piece: Piece;
-  next: Piece;
-  requestId: number;
-  paused: boolean;
-  gameStarted: boolean;
-  time: { start: number; elapsed: number; level: number };
-  points: number;
-  highScore: number;
-  lines: number;
-  level: number;
-  moves = {
+  canvasNext!: ElementRef<HTMLCanvasElement>;
+  ctx!: CanvasRenderingContext2D;
+  ctxNext!: CanvasRenderingContext2D;
+  board!: number[][];
+  piece!: Piece;
+  next!: Piece;
+  requestId!: number;
+  paused!: boolean;
+  gameStarted!: boolean;
+  time!: { start: number; elapsed: number; level: number };
+  points!: number;
+  highScore!: number;
+  lines!: number;
+  level!: number;
+  moves: any = {
     [KEY.LEFT]: (p: IPiece): IPiece => ({ ...p, x: p.x - 1 }),
     [KEY.RIGHT]: (p: IPiece): IPiece => ({ ...p, x: p.x + 1 }),
     [KEY.DOWN]: (p: IPiece): IPiece => ({ ...p, y: p.y + 1 }),
     [KEY.SPACE]: (p: IPiece): IPiece => ({ ...p, y: p.y + 1 }),
     [KEY.UP]: (p: IPiece): IPiece => this.service.rotate(p),
   };
-  playSoundFn: Function;
+  playSoundFn!: (sound: number[]) => void;
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
@@ -99,7 +100,9 @@ export class GameBoardComponent implements OnInit {
   }
 
   initBoard() {
-    this.ctx = this.canvas.nativeElement.getContext('2d');
+    this.ctx = this.canvas.nativeElement.getContext(
+      '2d'
+    ) as CanvasRenderingContext2D;
 
     // Calculate size of canvas from constants.
     this.ctx.canvas.width = COLS * BLOCK_SIZE;
@@ -110,7 +113,9 @@ export class GameBoardComponent implements OnInit {
   }
 
   initNext() {
-    this.ctxNext = this.canvasNext.nativeElement.getContext('2d');
+    this.ctxNext = this.canvasNext.nativeElement.getContext(
+      '2d'
+    ) as CanvasRenderingContext2D;
 
     // Calculate size of canvas from constants.
     // The + 2 is to allow for space to add the drop shadow to
@@ -142,6 +147,7 @@ export class GameBoardComponent implements OnInit {
     this.lines = 0;
     this.level = 0;
     this.board = this.getEmptyBoard();
+    // @ts-ignore
     this.time = { start: 0, elapsed: 0, level: LEVEL[this.level] };
     this.paused = false;
     this.addOutlines();
@@ -167,7 +173,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   drop(): boolean {
-    let p = this.moves[KEY.DOWN](this.piece);
+    const p = this.moves[KEY.DOWN](this.piece);
     if (this.service.valid(p, this.board)) {
       this.piece.move(p);
     } else {
@@ -177,6 +183,7 @@ export class GameBoardComponent implements OnInit {
         // Game over
         return false;
       }
+      // @ts-ignore
       this.playSoundFn([
         ,
         ,
@@ -216,6 +223,7 @@ export class GameBoardComponent implements OnInit {
       if (this.lines >= LINES_PER_LEVEL) {
         this.level++;
         this.lines -= LINES_PER_LEVEL;
+        // @ts-ignore
         this.time.level = LEVEL[this.level];
       }
     }
