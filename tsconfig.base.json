@@ -20,6 +20,9 @@
       ],
       "@nx-cross-platform-monorepo/ui-shared/game-board": [
         "libs/ui-shared/game-board/src/index.ts"
+      ],
+      "@nx-cross-platform-monorepo/web-app-tetris/util-constants": [
+        "libs/web-app-tetris/util-constants/src/index.ts"
       ]
     }
   },

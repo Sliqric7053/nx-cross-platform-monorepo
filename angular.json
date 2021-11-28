@@ -193,6 +193,7 @@
       },
       "tags": [],
       "implicitDependencies": ["web-app-tetris"]
-    }
+    },
+    "web-app-tetris-util-constants": "libs/web-app-tetris/util-constants"
   }
 }
