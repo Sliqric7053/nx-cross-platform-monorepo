@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/util-shared",
+  "sourceRoot": "libs/util-shared/src",
+  "prefix": "nx-cross-platform-monorepo",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/util-shared"],
+      "options": {
+        "jestConfig": "libs/util-shared/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/util-shared/src/**/*.ts",
+          "libs/util-shared/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

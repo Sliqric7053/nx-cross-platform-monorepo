@@ -21,6 +21,9 @@
       "@nx-cross-platform-monorepo/ui-shared/game-board": [
         "libs/ui-shared/game-board/src/index.ts"
       ],
+      "@nx-cross-platform-monorepo/util-shared": [
+        "libs/util-shared/src/index.ts"
+      ],
       "@nx-cross-platform-monorepo/web-app-tetris/util-interface": [
         "libs/web-app-tetris/util-interface/src/index.ts"
       ],

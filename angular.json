@@ -69,6 +69,7 @@
       "tags": []
     },
     "ui-shared-game-board": "libs/ui-shared/game-board",
+    "util-shared": "libs/util-shared",
     "web-app-tetris": {
       "projectType": "application",
       "root": "apps/web-app-tetris",
