@@ -23,7 +23,7 @@ import {
   GameEngineService,
 } from '@nx-cross-platform-monorepo/web-app-tetris/util-shared';
 import { IPiece } from '@nx-cross-platform-monorepo/web-app-tetris/util-interface';
-import { CapacitorStorageService } from '@nx-cross-platform-monorepo/util-shared';
+// import { CapacitorStorageService } from '@nx-cross-platform-monorepo/util-shared';
 
 @Component({
   selector: 'nx-cross-platform-monorepo-game-board',
@@ -82,13 +82,13 @@ export class GameBoardComponent implements OnInit {
   }
 
   constructor(
-    private service: GameEngineService,
-    private capStorageService: CapacitorStorageService
+    private service: GameEngineService // private capStorageService: CapacitorStorageService
   ) {}
 
   async ngOnInit() {
-    const highscore = await this.localStorageGet('highscore');
-    highscore ? (this.highScore = highscore) : (this.highScore = 0);
+    // const highscore = await this.localStorageGet('highscore');
+    const highscore = 1;
+    // highscore ? (this.highScore = highscore) : (this.highScore = 0);
     this.initBoard();
     this.initSound();
     this.initNext();
@@ -316,7 +316,7 @@ export class GameBoardComponent implements OnInit {
     cancelAnimationFrame(this.requestId);
     this.highScore =
       this.points > this.highScore ? this.points : this.highScore;
-    this.localStorageSet('highscore', this.highScore);
+    // this.localStorageSet('highscore', this.highScore);
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(1, 3, 8, 1.2);
     this.ctx.font = '1px Arial';
@@ -328,11 +328,11 @@ export class GameBoardComponent implements OnInit {
     return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
   }
 
-  async localStorageGet(key: string): Promise<any> {
-    return await this.capStorageService.get(key);
-  }
+  // async localStorageGet(key: string): Promise<any> {
+  //   return await this.capStorageService.get(key);
+  // }
 
-  localStorageSet(key: string, value: any): void {
-    this.capStorageService.set(key, value);
-  }
+  // localStorageSet(key: string, value: any): void {
+  //   this.capStorageService.set(key, value);
+  // }
 }

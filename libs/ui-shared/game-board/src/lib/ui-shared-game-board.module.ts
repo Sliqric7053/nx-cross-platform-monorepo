@@ -4,11 +4,7 @@ import { GameBoardComponent } from './game-board/game-board.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [
-    GameBoardComponent
-  ],
-  exports: [
-    GameBoardComponent
-  ],
+  declarations: [GameBoardComponent],
+  exports: [GameBoardComponent],
 })
 export class UiSharedGameBoardModule {}
