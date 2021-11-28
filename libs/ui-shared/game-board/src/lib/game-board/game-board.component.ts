@@ -16,7 +16,7 @@ import {
   POINTS,
   KEY,
   COLORSDARKER,
-} from '../../constants';
+} from '@nx-cross-platform-monorepo/web-app-tetris/util-constants';
 import { Zoundfx } from 'ng-zzfx';
 import { IPiece, Piece } from '../piece/piece.component';
 import { GameEngineLibService } from '../../services/game-engine-lib.service';
