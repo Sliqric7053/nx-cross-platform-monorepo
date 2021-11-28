@@ -195,6 +195,7 @@
       "implicitDependencies": ["web-app-tetris"]
     },
     "web-app-tetris-util-constants": "libs/web-app-tetris/util-constants",
+    "web-app-tetris-util-interface": "libs/web-app-tetris/util-interface",
     "web-app-tetris-util-shared": "libs/web-app-tetris/util-shared"
   }
 }

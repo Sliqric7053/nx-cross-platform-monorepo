@@ -1,0 +1,23 @@
+{
+  "root": "libs/web-app-tetris/util-interface",
+  "sourceRoot": "libs/web-app-tetris/util-interface/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/web-app-tetris/util-interface/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web-app-tetris/util-interface"],
+      "options": {
+        "jestConfig": "libs/web-app-tetris/util-interface/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
