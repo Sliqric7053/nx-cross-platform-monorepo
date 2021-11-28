@@ -23,6 +23,9 @@
       ],
       "@nx-cross-platform-monorepo/web-app-tetris/util-constants": [
         "libs/web-app-tetris/util-constants/src/index.ts"
+      ],
+      "@nx-cross-platform-monorepo/web-app-tetris/util-shared": [
+        "libs/web-app-tetris/util-shared/src/index.ts"
       ]
     }
   },
