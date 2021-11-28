@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IPiece } from '../../../../util-interface/src/lib/web-app-tetris-util-interface';
+import { IPiece } from '@nx-cross-platform-monorepo/web-app-tetris/util-interface';
 import { COLS, ROWS, POINTS } from '../constants/web-app-tetris-util-constants';
 
 @Injectable({
