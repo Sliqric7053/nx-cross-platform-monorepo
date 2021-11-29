@@ -1,0 +1,6 @@
+{
+	"appId": "com.mobile.tetris",
+	"appName": "tetris",
+	"webDir": "../../dist/apps/mobile-app-tetris",
+	"bundledWebRuntime": false
+}
