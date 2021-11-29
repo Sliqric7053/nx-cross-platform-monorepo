@@ -136,6 +136,8 @@
       },
       "tags": []
     },
+    "mobile-app-tetris": "apps/mobile-app-tetris",
+    "mobile-app-tetris-e2e": "apps/mobile-app-tetris-e2e",
     "ui-shared-game-board": "libs/ui-shared/game-board",
     "util-shared": "libs/util-shared",
     "web-app-tetris": {
