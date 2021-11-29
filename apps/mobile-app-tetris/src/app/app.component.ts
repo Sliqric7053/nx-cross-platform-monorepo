@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Message } from '@nx-cross-platform-monorepo/api-interfaces';
 
 @Component({
   selector: 'nx-cross-platform-monorepo-root',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'mobile-app-tetris';
+  hello$ = this.http.get<Message>('/api/hello');
+  constructor(private http: HttpClient) {}
 }
