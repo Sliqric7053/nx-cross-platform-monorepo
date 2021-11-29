@@ -68,6 +68,74 @@
       },
       "tags": []
     },
+    "desktop-app-tetris": {
+      "root": "apps/desktop-app-tetris",
+      "sourceRoot": "apps/desktop-app-tetris/src",
+      "projectType": "application",
+      "prefix": "desktop-app-tetris",
+      "targets": {
+        "build": {
+          "executor": "nx-electron:build",
+          "options": {
+            "outputPath": "dist/apps/desktop-app-tetris",
+            "main": "apps/desktop-app-tetris/src/main.ts",
+            "tsConfig": "apps/desktop-app-tetris/tsconfig.app.json",
+            "assets": ["apps/desktop-app-tetris/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/desktop-app-tetris/src/environments/environment.ts",
+                  "with": "apps/desktop-app-tetris/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "nx-electron:execute",
+          "options": {
+            "buildTarget": "desktop-app-tetris:build"
+          }
+        },
+        "package": {
+          "executor": "nx-electron:package",
+          "options": {
+            "name": "desktop-app-tetris",
+            "frontendProject": "web-app-tetris",
+            "outputPath": "dist/packages",
+            "prepackageOnly": true
+          }
+        },
+        "make": {
+          "executor": "nx-electron:make",
+          "options": {
+            "name": "desktop-app-tetris",
+            "frontendProject": "web-app-tetris",
+            "outputPath": "dist/executables"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/desktop-app-tetris/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/desktop-app-tetris"],
+          "options": {
+            "jestConfig": "apps/desktop-app-tetris/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "ui-shared-game-board": "libs/ui-shared/game-board",
     "util-shared": "libs/util-shared",
     "web-app-tetris": {
