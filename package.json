@@ -8,7 +8,7 @@
     "start": "nx serve",
     "build": "nx build",
     "build:mobile": "nx build --project=mobile-app-tetris",
-    "open:mobile:android": "nx run mobile-app-tetris:cap --cmd='open android'",
+    "open:mobile:android": "npm run build:mobile && nx run mobile-app-tetris:cap --cmd='open android'",
     "build:desktop": "nx build --project=desktop-app-tetris",
     "test": "nx test",
     "serve:web": "nx run-many --target=serve --projects=web-app-tetris,api -- --open",
